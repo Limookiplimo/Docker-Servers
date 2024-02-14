@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: user_password
+      MYSQL_DATABASE: standby_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: user_password
+    ports:
+      - "3306:3306"
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: user_password
+      POSTGRES_DB: standby_db
+    ports:
+      - "5432:5432"
