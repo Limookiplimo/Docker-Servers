@@ -6,9 +6,9 @@ services:
     container_name: mysql_db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: user_password
+      MYSQL_ROOT_PASSWORD: devUser@2024
       MYSQL_DATABASE: standby_db
-      MYSQL_USER: limoo
+      MYSQL_USER: devUser
       MYSQL_PASSWORD: devUser@2024
     ports:
       - "3306:3306"
@@ -18,8 +18,8 @@ services:
     container_name: postgres_db
     restart: always
     environment:
-      POSTGRES_USER: db_user
-      POSTGRES_PASSWORD: user_password
+      POSTGRES_USER: devUser
+      POSTGRES_PASSWORD: devUser@2024
       POSTGRES_DB: standby_db
     ports:
       - "5432:5432"
