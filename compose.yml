@@ -13,17 +13,21 @@ services:
     ports:
       - "3306:3306"
     networks:
-      - wp_network
+      - db_network
 
-  wordpress:
-    image: wordpress:latest
-    container_name: wordpress_db
+  postgres:
+    image: postgres:latest
+    container_name: postgres_db
     restart: always
+    environment:
+      POSTGRES_USER: devUser
+      POSTGRES_PASSWORD: devUser@2024
+      POSTGRES_DB: standby_db
     ports:
-      - "80:80"
+      - "5432:5432"
     networks:
-      - wp_network
+      - db_network
 
 networks:
-  wp_network:
+  db_network:
     driver: bridge
